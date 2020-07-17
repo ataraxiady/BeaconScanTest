@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
 
 
 
+        //다른  request code 사용
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN}, 2);
 
