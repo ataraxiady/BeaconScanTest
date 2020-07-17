@@ -3,8 +3,10 @@ package com.example.beaconscantest;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -23,6 +25,7 @@ import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
+import java.security.Permissions;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -45,6 +48,10 @@ public class MainActivity extends AppCompatActivity implements BeaconConsumer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN}, 1);
 
 
         //비콘 매니저 생성,

@@ -7,7 +7,8 @@ android {
     defaultConfig {
         applicationId "com.example.beaconscantest"
         minSdkVersion 16
-        targetSdkVersion 30
+//        targetSdkVersion 30
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
