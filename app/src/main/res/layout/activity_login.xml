@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/login"
             android:layout_marginTop="20dp"
-            android:onClick="OnButtonClicked"/>
+            />
 
     </LinearLayout>
 

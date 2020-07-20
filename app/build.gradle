@@ -33,5 +33,10 @@ dependencies {
     implementation 'org.altbeacon:android-beacon-library:2.+'//alt-beacon library
     implementation 'com.android.support:localbroadcastmanager:28.0.0'
 
+    compile 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife:10.2.1'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 
 }
