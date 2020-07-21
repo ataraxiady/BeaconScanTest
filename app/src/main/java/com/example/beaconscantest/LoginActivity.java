@@ -1,10 +1,9 @@
 package com.example.beaconscantest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
+
+import com.example.beaconscantest.api.response.LoginData;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
@@ -45,18 +44,20 @@ public class LoginActivity extends BaseActivity {
         }
 
         //로그인을 위한(아이디, 비밀번호 체크) 함수 실행
+        //가능하다면 자동로그인 추가 구현(getFireBaseKey)
+        onLogin();
 
     }
 
 
     private void onLogin(){
         showProgressBar();
-        LoginModel request = new LoginModel();
+        LoginData request = new LoginData();
 
 
         request.setWebId(idEditText.getText().toString());
         try{
-            String pw = AES.getInstance().encrypt(idEditText.getText().toString());
+            String pw = AES.getInstance().encrypt(pwEdiText.getText().toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (BadPaddingException e) {
@@ -72,6 +73,9 @@ public class LoginActivity extends BaseActivity {
         } catch (IllegalBlockSizeException e) {
             e.printStackTrace();
         }
+
+
+
 
 
     }

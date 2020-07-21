@@ -29,8 +29,8 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    /*
-    프로그레스바 보이기
+    /**
+     * 프로그레스바 보이기
      */
     public void showProgressBar(){
         if(progressBar == null){
@@ -55,8 +55,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    /*
-    프로그레스바 숨기기
+    /**
+     * 프로그레스바 숨기기
      */
     public void hideProgressBar() {
         if (progressBar != null) {
@@ -67,8 +67,8 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
-    /*
-    브라우저 실행
+    /**
+     * 브라우저 실행
      */
     public void runBrowser(String url) {
         if (url.length() > 0 && url.contains("http://")
