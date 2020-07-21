@@ -14,6 +14,15 @@ import java.util.HashSet;
 public class CookieSharedPreferences {
 
     public static final String COOKIE_SHARED_PREFERENCES_KEY = "com.example.cookie";
+    public static final String TOKEN = "TOKEN";
+    public static final String FCM_TOKEN = "FCM_TOKEN";
+    public static final String LID = "LID";
+    public static final String LPW = "LPW";
+
+    // SharedPreferences 객체
+    private static SharedPreferences sharedPreferences;
+
+
 
     /**
      * 싱글톤 모델로 객체 초기화
@@ -28,9 +37,6 @@ public class CookieSharedPreferences {
         return cookieSharedPreferences;
     }
 
-
-    // SharedPreferences 객체
-    private SharedPreferences sharedPreferences;
 
     /**
      * 생성자
@@ -96,6 +102,44 @@ public class CookieSharedPreferences {
         }
     }
 
+    public static void put(String key, String value){
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.putString(key, value);
+        prefsEditor.commit();
+    }
+
+
+    public static String get(String key, String defValue) {
+        return sharedPreferences.getString(key, defValue);
+    }
+
+    public static boolean get(String key, boolean defValue){
+        return sharedPreferences.getBoolean(key, defValue);
+    }
+
+    public static void put(String key, boolean value) {
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.putBoolean(key, value);
+        prefsEditor.commit();
+    }
+
+    public static Integer get(String key, int defValue) {
+        return sharedPreferences.getInt(key, defValue);
+    }
+
+    public static void put(String key, int value) {
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.putInt(key, value).commit();
+    }
+
+    public static Long get(String key, long defValue) {
+        return sharedPreferences.getLong(key, defValue);
+    }
+
+    public static void put(String key, long value) {
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        prefsEditor.putLong(key, value).commit();
+    }
 
 }
 

@@ -29,6 +29,38 @@ public class LoginData {
     public String getPushToken() {return pushToken;}
     public void setPushToken(String pushToken) {this.pushToken = pushToken; }
 
+
+    /**
+     * 그린램프앱에서는  basemodel에 있던 애들
+     * @return
+     */
+    public boolean isResult() {
+        return result;
+    }
+
+    public void setResult(boolean result) {
+        this.result = result;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+
+
+
+
     @NonNull
     @Override
 

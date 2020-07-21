@@ -19,6 +19,9 @@ public class IntroActivity extends AppCompatActivity {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                /**
+                 * LoginActivity 테스트해보고싶으면 뒤에 부분 로그인액티비티로 바꾸기
+                 */
                 Intent intent = new Intent(IntroActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
