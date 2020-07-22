@@ -15,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.example.beaconscantest.dialog.DefaultDialog;
+
 public class BaseActivity extends AppCompatActivity {
     private Toast toast;
     private ProgressBar progressBar;
@@ -84,26 +86,26 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 에러만 보여주는 다이얼로그
      */
-//    public void showErrorDialog() {
-//        DefaultDialog defaultDialog = new DefaultDialog();
-//        Bundle b = new Bundle();
-//        b.putString("dialog_msg", getString(R.string.common_err_api_msg));
-//        b.putInt("dialog_type", 1);
-//        defaultDialog.setArguments(b);
-////        defaultDialog.setOnResultListener(new BaseDialogFragment.OnResultListener() {
-////            @Override
-////            public void onDialogResult(Object... objects) {
-////                boolean isOk = (boolean) objects[0];
-////                if (isOk) {
-////                    if (mDialogEventListener != null) {
-////                        mDialogEventListener.onReceivedEvent();
-////                        mDialogEventListener = null;
-////                    }
-////                }
-////            }
-////        });
-//        defaultDialog.show(getSupportFragmentManager(), "DefaultDialog");
-//    }
+    public void showErrorDialog() {
+        DefaultDialog defaultDialog = new DefaultDialog();
+        Bundle b = new Bundle();
+        b.putString("dialog_msg", "통신상태를 확인해주세요");
+        b.putInt("dialog_type", 1);
+        defaultDialog.setArguments(b);
+//        defaultDialog.setOnResultListener(new BaseDialogFragment.OnResultListener() {
+//            @Override
+//            public void onDialogResult(Object... objects) {
+//                boolean isOk = (boolean) objects[0];
+//                if (isOk) {
+//                    if (mDialogEventListener != null) {
+//                        mDialogEventListener.onReceivedEvent();
+//                        mDialogEventListener = null;
+//                    }
+//                }
+//            }
+//        });
+        defaultDialog.show(getSupportFragmentManager(), "DefaultDialog");
+    }
 
 
 

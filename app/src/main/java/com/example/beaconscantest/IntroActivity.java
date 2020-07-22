@@ -62,8 +62,7 @@ public class IntroActivity extends BaseActivity {
                     @Override
                     public void onFailure(Call<LoginData> call, Throwable t) {
                         hideProgressBar();
-                        //에러 다이얼로그 보여줘야함
-
+                        showErrorDialog();
                     }
                 });
             }

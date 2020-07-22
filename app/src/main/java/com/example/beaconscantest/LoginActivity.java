@@ -135,7 +135,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onFailure(Call<LoginData> call, Throwable t) {
                 hideProgressBar();
-                //에러 다이얼로그 띄워야함
+                showErrorDialog();
 
             }
         });
