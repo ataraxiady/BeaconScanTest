@@ -26,16 +26,43 @@ public class CookieSharedPreferences {
 
     /**
      * 싱글톤 모델로 객체 초기화
+     *
+     * 싱글톤 모델이란?
+     * -특정 클래스에 대한 인스턴스를 단 한번만  static 메모리 영역에 할당하고
+     * 해당 클래스에 대한 생성자를 여러번 호출하더라도 최초에 생성된 객체를 반환하는 디자인 형태
+     * -장점 : 무분별한 new 연산으로 인한 메모리 낭비 방지
+     * -문제점 : 싱글톤 인스턴스가 너무 많은 일을 하거나 많은 데이터를 공유 시킬 경우
+     * 다른 클래스의 인스턴스들 간에 결합도가 높아져 "개방-폐쇄 원칙"을 위배하게 된다
+     * (=객체 지향 설계 원칙에 어긋나는 것)
      */
 
     private static CookieSharedPreferences cookieSharedPreferences = null;
 
+    /**
+     * 이건 Thread safe lazy initialization + Double-checked locking 으로
+     * 게으른 초기화 성능저하를 완화시킴킴     */
     public static CookieSharedPreferences getInstanceof(Context c){
         if (cookieSharedPreferences == null){
-            cookieSharedPreferences = new CookieSharedPreferences(c);
+            synchronized (CookieSharedPreferences.class) {
+                if (cookieSharedPreferences == null)
+                    cookieSharedPreferences = new CookieSharedPreferences(c);
+            }
         }
         return cookieSharedPreferences;
     }
+
+    /**
+     * 아래 방법이 싱글톤 모델을 사용하기 위한 제일 좋은 방법이지만 코드 내 고쳐야할 부분이 좀 있는 관계로 일단 패-쓰
+     */
+//    private static class LazyHolder{
+//        public static final CookieSharedPreferences cookieSharedPreferences = new CookieSharedPreferences();
+//    }
+//
+//    public static CookieSharedPreferences getInstance(){
+//        return LazyHolder.cookieSharedPreferences;
+//    }
+//
+//
 
 
     /**
